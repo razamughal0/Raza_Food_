@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raza Food - Authentic Cuisine</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        :root {
+            --primary-color: #c41e3a;
+            --secondary-color: #2c1810;
+            --text-color: #333;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        /* Header Styles */
+        .header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+    
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+
+
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 5px rgba(196, 30, 58, 0.3);
+        }
+
+        textarea.form-control {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #a3182e;
+        }
+
+        .map-container {
+            margin: 4rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .social-contact {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .contact-hero {
+                height: 200px;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        
+
+
+
+        :root {
+            --primary-color: #c41e3a;
+            --secondary-color: #2c1810;
+            --text-color: #333;
+            --light-bg: #f7f5f2;
+        }
+
+        /* Menu Page Specific Styles */
+        .menu-hero {
+        background-image: url(https://images.creativemarket.com/0.1.0/ps/5912337/1820/1213/m1/fpnw/wm1/tq3dpzrfpjdhuzk9yqb2zgsq446ssnplh9b8fzsbeo1oemh6ec5kkpp6gamxff7e-.jpg?1550561650&s=5c8e2e797d2405585e6676d70d42229f);
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .menu-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        .menu-nav {
+            background: var(--light-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+        }
+
+        .menu-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .category-btn {
+            padding: 0.8rem 2rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 30px;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .category-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .item-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover .item-image img {
+            transform: scale(1.1);
+        }
+
+        .item-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        .item-info {
+            padding: 1.5rem;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .item-title {
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+        }
+
+        .item-price {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .item-desc {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .item-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .item-tag {
+            background: var(--light-bg);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .dietary-icons {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .dietary-icon {
+            width: 30px;
+            height: 30px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Chef's Special Section */
+        .chef-special {
+            background: var(--secondary-color);
+            color: white;
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .special-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .special-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .menu-hero {
+                height: 300px;
+            }
+            
+            .category-btn {
+                padding: 0.6rem 1.5rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">Raza Food</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="menu.html">Menu</a>
+           
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+    </header>
+    
+<!-- Menu Hero Section -->
+<section class="menu-hero">
+    <div class="hero-content">
+        <h1>Our Culinary Masterpieces</h1>
+        <p>Experience Tradition Perfected</p>
+    </div>
+</section>
+
+<!-- Menu Navigation -->
+<nav class="menu-nav">
+    <div class="menu-container">
+        <div class="menu-categories">
+            <button class="category-btn active">All</button>
+            <button class="category-btn">Appetizers</button>
+            <button class="category-btn">Main Course</button>
+            <button class="category-btn">Desserts</button>
+            <button class="category-btn">Beverages</button>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Menu -->
+<main class="menu-container">
+    <div class="menu-grid">
+        <!-- Menu Item 1 -->
+        <article class="menu-item">
+            <div class="item-image">
+                <img src="https://c.ndtvimg.com/2021-04/9s8mb8no_chicken-kabsa_625x300_30_April_21.jpg?im=FaceCrop,algorithm=dnn,width=1200,height=675" alt="Traditional Kabsa">
+                <span class="item-badge">Chef's Special</span>
+                <div class="dietary-icons">
+                    <div class="dietary-icon">
+                        <i class="fas fa-leaf" title="Halal"></i>
+                    </div>
+                    <div class="dietary-icon">
+                        <i class="fas fa-pepper-hot" title="Spicy"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="item-info">
+                <div class="item-header">
+                    <h3 class="item-title">Traditional Kabsa</h3>
+                    <span class="item-price">$24.99</span>
+                </div>
+                <p class="item-desc">Fragrant basmati rice with tender lamb, cooked in traditional spices</p>
+                <div class="item-tags">
+                    <span class="item-tag">Signature Dish</span>
+                    <span class="item-tag">Serves 2-3</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Menu Item 2 -->
+        <article class="menu-item">
+            <div class="item-image">
+                <img src="https://www.yummyoyummy.com/wp-content/uploads/2019/09/DSC_0481.jpg" alt="Chicken Mandi">
+                <div class="dietary-icons">
+                    <div class="dietary-icon">
+                        <i class="fas fa-leaf" title="Halal"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="item-info">
+                <div class="item-header">
+                    <h3 class="item-title">Chicken Mandi</h3>
+                    <span class="item-price">$19.99</span>
+                </div>
+                <p class="item-desc">Slow-cooked aromatic chicken with saffron rice</p>
+                <div class="item-tags">
+                    <span class="item-tag">Popular Choice</span>
+                    <span class="item-tag">Gluten Free</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Add more menu items following the same structure -->
+    </div>
+</main>
+
+<!-- Chef's Special Section -->
+<section class="chef-special">
+    <div class="special-grid">
+        <div class="special-card">
+            <h3>Today's Special</h3>
+            <p>Lamb Ouzi - $29.99</p>
+            <small>Stuffed lamb with nuts and raisins</small>
+        </div>
+        <div class="special-card">
+            <h3>Weekly Promotion</h3>
+            <p>Family Meal Deal - $49.99</p>
+            <small>Feeds 4-5 people</small>
+        </div>
+    </div>
+</section>
+
+    <!-- Social Links -->
+    <div class="social-contact">
+        <h3>Follow Us On Social Media</h3>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-yelp"></i></a>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>
